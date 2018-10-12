@@ -27,10 +27,11 @@ class Net(nn.Module):
         
 		
 		# Covolutional Layers
-        self.conv_1 = nn.Conv2d(1, 16, 5) 
-        self.conv_2 = nn.Conv2d(16, 64, 3) 
-        self.conv_3 = nn.Conv2d(64, 256, 3) 
-        self.conv_4 = nn.Conv2d(256, 512, 1) # statt 3
+		# W_out = ((ImageWidth-Kernelsize + 2xPadding)/Stride)+1 = ((224-16 + 2x0)/1)+1 = 209 connections
+        self.conv_1 = nn.Conv2d(1, 16, 5) # in_channels = 1; out_channels = 16; kernel_size = 5x5, stride=(1, 1) default; padding = 0 default  
+        self.conv_2 = nn.Conv2d(16, 64, 3) # in_channels = 16; out_channels = 64; kernel_size = 3x3, stride=(1, 1) default; padding = 0 default 
+        self.conv_3 = nn.Conv2d(64, 256, 3) # in_channels = 64; out_channels = 256; kernel_size = 3x3, stride=(1, 1) default; padding = 0 default
+        self.conv_4 = nn.Conv2d(256, 512, 1) # in_channels = 256; out_channels = 512; kernel_size = 1x1, stride=(1, 1) default; padding = 0 default 
 
 		# Maxpooling Layer	(for all)	
         self.pool = nn.MaxPool2d(2, 2)
