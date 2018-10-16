@@ -63,6 +63,12 @@ cd P1_Facial_Keypoints
 	conda install pytorch-cpu -c pytorch
 	pip install torchvision
 	```
+	
+	If the call __conda install pytorch-cpu -c pytorch__ does not work, you can alternatively go directly to the homepage of Pytorch (https://pytorch.org/); You have to select "Cuda None" and find the pip3 commands:
+	```
+	pip3 install http://download.pytorch.org/whl/cpu/torch-0.4.1-cp36-cp36m-win_amd64.whl
+	pip3 install torchvision
+	```
 
 6. Install a few required pip packages, which are specified in the requirements text file (including OpenCV).
 ```
@@ -92,7 +98,18 @@ jupyter notebook
 
 __NOTE:__ While some code has already been implemented to get you started, you will need to implement additional functionality and answer all of the questions included in the notebook. __Unless requested, it's suggested that you do not modify code that has already been included.__
 
+4. If you cannot change the kernel in the notebook (i.e. from Python3 to cv-nd), you can install the following:
+	- Allows to select the kernel in jupyter notebook:
+	```
+	conda install -c conda-forge nb_conda_kernels
+	```
 
+	- Add cv-nd kernel envirement:
+	```
+	python -m ipykernel install --user --name cv-nd --display-name "cv-nd"
+	```
+	call "jupyter notebook" again and change the kernel (you only need to do it once)
+	
 ## Evaluation
 
 Your project will be reviewed against the project [rubric](#rubric).  Review this rubric thoroughly, and self-evaluate your project before submission.  All criteria found in the rubric must meet specifications for you to pass.
